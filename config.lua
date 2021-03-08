@@ -11,5 +11,5 @@ Config.zones = {
 
 Config.safezoneMessage = "You are currently in a Safezone" -- Change the message that shows when you are in a safezone
 Config.radius = 50.0 -- Change the RADIUS of the Safe Zone. Remember, whatever you put here will DOUBLE
-Config.speedlimitinSafezone = "30" -- Set a speed limit in a Safezone
+Config.speedlimitinSafezone = 30 -- Set a speed limit in a Safezone
 Config.blipname = "SAFEZONE" -- Change Blip name
