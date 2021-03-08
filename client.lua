@@ -66,7 +66,7 @@ Citizen.CreateThread(function()
 		if SafezoneIn then
 		DisableControlAction(2, 37, true)
 		DisablePlayerFiring(player, true)
-      	DisableControlAction(0, 106, true)
+      	        DisableControlAction(0, 106, true)
 	    if math.floor(speed*2.2369) == Config.speedlimitinSafezone then
 		cruise = speed
 		SetVehicleMaxSpeed(vehicle, speed)
