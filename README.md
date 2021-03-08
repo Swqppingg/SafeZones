@@ -4,7 +4,7 @@ Simple script to add Safezones
 # :hammer_and_wrench: Features
 - Speed limit in Safezones
 - Multiple Safezones
-- Blips
+- Blips where the safezones are
 - Disable all weapons in Safezones
 - Persistent Notification when in Safezone
 
