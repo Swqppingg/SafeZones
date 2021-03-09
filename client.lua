@@ -68,9 +68,9 @@ Citizen.CreateThread(function()
 		DisablePlayerFiring(player, true)
       	DisableControlAction(0, 106, true)
 
-	    if math.floor(speed*2.2369) == Config.speedlimitinSafezone then
-		cruise = speed
-		SetVehicleMaxSpeed(vehicle, speed)
+		mphs = 2.237
+		maxspeed = Config.speedlimitinSafezone/mphs
+		SetVehicleMaxSpeed(vehicle, maxspeed)
 
 			if IsDisabledControlJustPressed(2, 37) then
 				SetCurrentPedWeapon(player,GetHashKey("WEAPON_UNARMED"),true)
@@ -79,6 +79,5 @@ Citizen.CreateThread(function()
 				SetCurrentPedWeapon(player,GetHashKey("WEAPON_UNARMED"),true)
 			end
 	end
-end
 end
 end)
