@@ -18,11 +18,11 @@ Citizen.CreateThread(function()
 end)
 
 Citizen.CreateThread(function()
-	Citizen.Wait(0)
 	while true do
 		local playerPed = PlayerPedId()
 		local x, y, z = table.unpack(GetEntityCoords(playerPed, true))
 		local minDistance = 100000
+		Citizen.Wait(10000)
 		for i = 1, #Config.zones, 1 do
 			dist = Vdist(Config.zones[i].x, Config.zones[i].y, Config.zones[i].z, x, y, z)
 			if dist < minDistance then
@@ -30,18 +30,17 @@ Citizen.CreateThread(function()
 				closestZone = i
 			end
 		end
-		Citizen.Wait(15000)
 	end
 end)
 
 Citizen.CreateThread(function()
 	while true do
-		Citizen.Wait(0)
 		local player = PlayerPedId()
 		local x,y,z = table.unpack(GetEntityCoords(player, true))
 		local dist = Vdist(Config.zones[closestZone].x, Config.zones[closestZone].y, Config.zones[closestZone].z, x, y, z)
 		local vehicle = GetVehiclePedIsIn(player, false)
 		local speed = GetEntitySpeed(vehicle)
+		Citizen.Wait(20)
 
 
 		if dist <= Config.radius then
