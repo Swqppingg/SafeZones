@@ -49,7 +49,7 @@ Citizen.CreateThread(function()
 				SetEntityCanBeDamaged(vehicle, false)
 				ClearPlayerWantedLevel(PlayerId())
 				SetCurrentPedWeapon(player,GetHashKey("WEAPON_UNARMED"),true)
-				exports['mythic_notify']:PersistentAlert('start', 'safezoneAlert', 'inform', Config.safezoneMessage)
+				exports['mythic_notify']:PersistentAlert('start', 'safezoneAlert', Config.notificationstyle, Config.safezoneMessage)
 				SafezoneIn = true
 				SafezoneOut = false
 			end
