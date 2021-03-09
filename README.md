@@ -1,6 +1,9 @@
 # :warning: Information
 Simple script to add Safezones
 
+# :hammer: Requirements
+[mythic_notify](https://github.com/FlawwsX/mythic_notify) - For notifications when in Safezones
+
 # :hammer_and_wrench: Features
 - Speed limit in Safezones
 - Multiple Safezones
