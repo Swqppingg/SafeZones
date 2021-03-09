@@ -14,8 +14,6 @@ Citizen.CreateThread(function()
 	SetBlipScale  (blip1, 0.9)
 	SetBlipColour (blip1, 11)
     SetBlipAsShortRange(blip1, true)
-	BeginTextCommandSetBlipName("STRING")
-	AddTextComponentString(Config.blipname)
 	end
 end)
 
@@ -45,6 +43,7 @@ Citizen.CreateThread(function()
 		local vehicle = GetVehiclePedIsIn(player, false)
 		local speed = GetEntitySpeed(vehicle)
 
+
 		if dist <= Config.radius then
 			if not SafezoneIn then
 				NetworkSetFriendlyFireOption(false)
@@ -69,9 +68,11 @@ Citizen.CreateThread(function()
 		DisableControlAction(2, 37, true)
 		DisablePlayerFiring(player, true)
       	DisableControlAction(0, 106, true)
+
 	    if math.floor(speed*2.2369) == Config.speedlimitinSafezone then
 		cruise = speed
 		SetVehicleMaxSpeed(vehicle, speed)
+
 			if IsDisabledControlJustPressed(2, 37) then
 				SetCurrentPedWeapon(player,GetHashKey("WEAPON_UNARMED"),true)
 			end

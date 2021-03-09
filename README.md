@@ -7,6 +7,7 @@ Simple script to add Safezones
 - Blips where the safezones are
 - Disable all weapons in Safezones
 - Persistent Notification when in Safezone
+- Radius Circle Blip
 
 # :inbox_tray: Download
 [Download via Github](https://github.com/Swqppingg/Safezones)
