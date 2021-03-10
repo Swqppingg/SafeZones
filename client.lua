@@ -40,7 +40,7 @@ Citizen.CreateThread(function()
 		local dist = Vdist(Config.zones[closestZone].x, Config.zones[closestZone].y, Config.zones[closestZone].z, x, y, z)
 		local vehicle = GetVehiclePedIsIn(player, false)
 		local speed = GetEntitySpeed(vehicle)
-		Citizen.Wait(20)
+		Citizen.Wait(80)
 
 
 		if dist <= Config.radius then
