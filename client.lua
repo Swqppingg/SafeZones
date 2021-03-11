@@ -40,7 +40,6 @@ Citizen.CreateThread(function()
 		local dist = Vdist(Config.zones[closestZone].x, Config.zones[closestZone].y, Config.zones[closestZone].z, x, y, z)
 		local vehicle = GetVehiclePedIsIn(player, false)
 		local speed = GetEntitySpeed(vehicle)
-		Citizen.Wait(80)
 
 
 		if dist <= Config.radius then
@@ -62,11 +61,25 @@ Citizen.CreateThread(function()
 				SafezoneOut = true
 				SafezoneIn = false
 			end
+			Citizen.Wait(200)
 		end
 		if SafezoneIn then
+		Citizen.Wait(10)
 		DisableControlAction(2, 37, true)
 		DisablePlayerFiring(player, true)
       	DisableControlAction(0, 106, true)
+		SetPlayerCanDoDriveBy(player, false)
+		DisableControlAction(0, 24, true)
+		DisableControlAction(0, 69, true)
+		DisableControlAction(0, 70, true)
+		DisableControlAction(0, 92, true)
+		DisableControlAction(0, 114, true)
+		DisableControlAction(0, 257, true)
+		DisableControlAction(0, 331, true)
+		DisableControlAction(0, 68, true)
+		DisableControlAction(0, 257, true)
+		DisableControlAction(0, 263, true)
+		DisableControlAction(0, 264, true)
 
 		mphs = 2.237
 		maxspeed = Config.speedlimitinSafezone/mphs
