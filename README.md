@@ -19,6 +19,10 @@ Simple script to add Safezones
 1. Add the **Safezones** folder to your FiveM resources directory.
 2. Edit your server.cfg and add “ensure **Safezones**”
 
+# :wrench: Support
+Open an issue or join my discord server for support
+https://discord.gg/X3Mb74Phnq
 
+---------------------------------------------------
 
 If you have any issues or suggestions please put them below.
