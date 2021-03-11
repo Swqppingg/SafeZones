@@ -48,15 +48,21 @@ Citizen.CreateThread(function()
 				SetEntityCanBeDamaged(vehicle, false)
 				ClearPlayerWantedLevel(PlayerId())
 				SetCurrentPedWeapon(player,GetHashKey("WEAPON_UNARMED"),true)
+				if Config.showNotification then
 				exports['mythic_notify']:PersistentAlert('start', 'safezoneAlert', Config.notificationstyle, Config.safezoneMessage)
+				end
 				SafezoneIn = true
 				SafezoneOut = false
 			end
 		else
 			if not SafezoneOut then
 				NetworkSetFriendlyFireOption(true)
+				if Config.showNotification then
 				exports['mythic_notify']:PersistentAlert('end', 'safezoneAlert')
-				SetVehicleMaxSpeed(vehicle, 336*2.2369)
+				end
+				if Config.speedlimitinSafezone then
+				SetVehicleMaxSpeed(vehicle, 1000.00)
+				end
 				SetEntityCanBeDamaged(vehicle, true)
 				SafezoneOut = true
 				SafezoneIn = false
@@ -81,9 +87,11 @@ Citizen.CreateThread(function()
 		DisableControlAction(0, 263, true)
 		DisableControlAction(0, 264, true)
 
+		if Config.speedlimitinSafezone then
 		mphs = 2.237
 		maxspeed = Config.speedlimitinSafezone/mphs
 		SetVehicleMaxSpeed(vehicle, maxspeed)
+		end
 
 			if IsDisabledControlJustPressed(2, 37) then
 				SetCurrentPedWeapon(player,GetHashKey("WEAPON_UNARMED"),true)
