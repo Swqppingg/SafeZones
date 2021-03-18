@@ -1,3 +1,14 @@
+RegisterServerEvent("SafeZones:isAllowed")
+AddEventHandler("SafeZones:isAllowed", function()
+    if IsPlayerAceAllowed(source, "safezones.bypass") then
+        TriggerClientEvent("SafeZones.returnIsAllowed", source, true)
+    else
+        TriggerClientEvent("SafeZones.returnIsAllowed", source, false)
+    end
+end)
+
+
+
 
 versionChecker = true -- Set to false to disable version checker
 
@@ -5,7 +16,7 @@ versionChecker = true -- Set to false to disable version checker
 
 -- Don't touch
 resourcename = "SafeZones"
-version = "1.0.3"
+version = "1.0.4"
 rawVersionLink = "https://raw.githubusercontent.com/Swqppingg/SafeZones/main/version.txt"
 
 

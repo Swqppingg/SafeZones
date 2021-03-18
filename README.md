@@ -11,6 +11,7 @@ Simple script to add Safezones
 - Disable all weapons in Safezones
 - Persistent Notification when in Safezone
 - Radius Circle Blip
+- Command to bypass the safezone with ace perms - /sbypass (safezones.bypass)
 
 # :inbox_tray: Download
 [Download via Github](https://github.com/Swqppingg/Safezones)

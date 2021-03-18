@@ -1,6 +1,31 @@
 local SafezoneIn = false
 local SafezoneOut = false
 local closestZone = 1
+local allowedToUse = false
+local bypass = false
+
+Citizen.CreateThread(function()
+	TriggerServerEvent("SafeZones:isAllowed")
+end)
+
+RegisterNetEvent("SafeZones.returnIsAllowed")
+AddEventHandler("SafeZones.returnIsAllowed", function(isAllowed)
+    allowedToUse = isAllowed
+end)
+
+RegisterCommand("sbypass", function(source, args, rawCommand)
+	if allowedToUse then
+	if not bypass then
+	bypass = true
+	ShowInfo("~g~SafeZone Bypass Enabled!")
+	elseif bypass then
+	bypass = false
+	ShowInfo("~r~SafeZone Bypass Disabled!")
+	end
+else
+	ShowInfo("~r~Insufficient Permissions.")
+end
+end)
 
 Citizen.CreateThread(function()
 	for i = 1, #Config.zones, 1 do
@@ -71,10 +96,11 @@ Citizen.CreateThread(function()
 		end
 		if SafezoneIn then
 		Citizen.Wait(10)
-		DisableControlAction(2, 37, true)
+    if not bypass then
 		DisablePlayerFiring(player, true)
-      	DisableControlAction(0, 106, true)
 		SetPlayerCanDoDriveBy(player, false)
+		DisableControlAction(2, 37, true)
+      	DisableControlAction(0, 106, true)
 		DisableControlAction(0, 24, true)
 		DisableControlAction(0, 69, true)
 		DisableControlAction(0, 70, true)
@@ -101,4 +127,12 @@ Citizen.CreateThread(function()
 			end
 	end
 end
+end
 end)
+
+
+function ShowInfo(text)
+	BeginTextCommandThefeedPost("STRING")
+	AddTextComponentSubstringPlayerName(text)
+	EndTextCommandThefeedPostTicker(true, false)
+end
