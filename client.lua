@@ -47,7 +47,7 @@ Citizen.CreateThread(function()
 		local playerPed = PlayerPedId()
 		local x, y, z = table.unpack(GetEntityCoords(playerPed, true))
 		local minDistance = 100000
-		Citizen.Wait(10000)
+		Citizen.Wait(1)
 		for i = 1, #Config.zones, 1 do
 			dist = Vdist(Config.zones[i].x, Config.zones[i].y, Config.zones[i].z, x, y, z)
 			if dist < minDistance then
